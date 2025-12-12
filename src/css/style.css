@@ -1,84 +1,219 @@
-        body {
-            scroll-behavior: smooth;
-        }
+/* ---------------------------------------------------------------
+   GLOBAL RESET & BASE TYPOGRAPHY
+----------------------------------------------------------------*/
+* {
+  box-sizing: border-box;
+}
 
-        nav{
-            background-color:  #0a0c10;
-            color: whitesmoke;
-        }
+/* Make body use full viewport height */
+html, body {
+  height: 100%;
+}
 
-        nav a {
-            color: whitesmoke !important;
-        }
+/* Main app wrapper (everything except navbar & footer) */
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
 
-        .nav-link{
-            color: whitesmoke !important;
-        }
+/* Content pushes footer to bottom */
+.main-content {
+  flex: 1;
+}
 
-        .hero {
-            /* background-image: url('../assets/frantisek-canik-k6RsU8om2UE-unsplash.jpg'); */
-            background-color: #0c0503a3;
-            background-blend-mode: multiply;
-            background-position: center;
-            background-size: cover;
-            background-repeat: no-repeat;
-            height: 70vh;
-            color: white;
-            padding: 100px 0;
-        }
+body {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  color: #222;
+  font-family: "Inter", "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
 
+img {
+  width: 100%;
+  display: block;
+}
 
-        #services{
-            background-color: #0a0c10;
-            color: whitesmoke;
-        }
+/* ---------------------------------------------------------------
+   NAVBAR
+----------------------------------------------------------------*/
+.navbar {
+  background-color: #0a0c10 !important;
+}
 
-        .section-title {
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 30px;
-        }
+.navbar-brand {
+  color: #fff !important;
+  font-size: 1.35rem;
+}
 
-        .service-card img{
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 20px 20px 0 0;
-        }
+.nav-link {
+  color: #ffffff !important;
+  transition: color 0.2s ease;
+}
 
-        .service-card-text{
-            padding: 25px;
-        }
+.nav-link:hover {
+  color: #bbbbbb !important;
+}
 
-        .service-card, .pricing-card {
-            border-radius: 20px;
-            background: #f8f9fa;
-            transition: .2s;
-            color: #0a0c10;
-            
-        }
-        
-        #pricing{
-            background-color: rgb(221, 232, 237);
-        }
+.navbar-toggler-icon {
+  filter: invert(1);
+}
 
-        .side-img{
-            width: 500px;
-            height: 350px;
-            object-fit: cover;
-        }
+/* Remove the glowing blue outline */
+.navbar-toggler:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
 
-        .service-card:hover, .pricing-card:hover {
-            transform: translateY(-5px);
-        }
-        .dark-section {
-            background: #111318;
-            color: white;
-            padding: 80px 0;
-        }
-        .footer {
-            background: #0a0c10;
-            padding: 40px 0;
-            color: #ccc;
-        }
-        .footer a { color: #fff; }
+/* ---------------------------------------------------------------
+   HERO SECTION
+----------------------------------------------------------------*/
+.hero-section {
+  color: white;
+  text-align: center;
+  position: relative;
+}
+
+.hero-section h1,
+.hero-section p {
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
+}
+
+.hero-section .btn-lg {
+  min-width: 160px;
+}
+
+/* ---------------------------------------------------------------
+   CONTENT SECTIONS
+----------------------------------------------------------------*/
+section {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+h2, h3, h4, h5 {
+  font-weight: 700;
+}
+
+p {
+  color: #555;
+}
+
+/* Fix spacing when images sit beside text */
+@media (max-width: 992px) {
+  .content-section img {
+    margin-bottom: 1.2rem;
+  }
+}
+
+/* ---------------------------------------------------------------
+   SERVICE CARDS
+----------------------------------------------------------------*/
+.card {
+  border-radius: 0.5rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card-img-top {
+  height: 250px;
+  object-fit: cover;
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+
+/* ---------------------------------------------------------------
+   GALLERY GRID
+----------------------------------------------------------------*/
+.gallery-image-wrapper {
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-image-wrapper:hover {
+  transform: scale(1.04);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* ---------------------------------------------------------------
+   PRICING LIST
+----------------------------------------------------------------*/
+.pricing-list div {
+  padding: 0.85rem 0;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.pricing-list div:last-child {
+  border-bottom: none;
+}
+
+.pricing-list span:first-child {
+  font-weight: 600;
+}
+
+.pricing-list span:last-child {
+  font-weight: 700;
+}
+
+/* ---------------------------------------------------------------
+   FOOTER
+----------------------------------------------------------------*/
+footer {
+  background-color: #0a0c10;
+  color: #ccc;
+}
+
+footer a {
+  color: #ddd;
+}
+
+footer a:hover {
+  color: #fff;
+}
+
+/* ---------------------------------------------------------------
+   BUTTONS
+----------------------------------------------------------------*/
+.btn-dark {
+  background: #0a0c10 !important;
+}
+
+.btn-light:hover {
+  background-color: #f1f1f1 !important;
+  color: #000 !important;
+}
+
+/* ---------------------------------------------------------------
+   RESPONSIVE TWEAKS
+----------------------------------------------------------------*/
+
+/* Prevent content from being too narrow around 576–630px */
+@media (max-width: 650px) {
+  .container {
+    max-width: 100% !important;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* Improve spacing on smaller screens */
+@media (max-width: 500px) {
+  h1 {
+    font-size: 1.9rem;
+  }
+  h2 {
+    font-size: 1.6rem;
+  }
+  h3 {
+    font-size: 1.3rem;
+  }
+}

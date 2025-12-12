@@ -1,76 +1,52 @@
-import React from 'react'
+import React from "react";
 
-import image from '../assets/arthur-humeau-Twd3yaqA2NM-unsplash.jpg'
-
-
-const PricingSection = () => {
+const PricingSection = ({ title, subtitle, items = [], image }) => {
   return (
-    <section className="py-5" id="pricing">
+    <section className="py-5">
       <div className="container">
-        <h2 className="section-title">Pricing</h2>
-        <p className="text-center mb-5">Transparent pricing for premium services</p>
 
-        <div className="row g-3 justify-content-between align-items-center">
+        {/* Title Block */}
+        <div className="text-center mb-5">
+          <h2 className="fw-bold">{title}</h2>
+          {subtitle && <p className="text-muted">{subtitle}</p>}
+        </div>
 
-         {/* service menu */}
-          <div className="col-lg-6 p-4 pricing-card">
-              <h4 className="fw-bold mb-4">Service Menu</h4>
+        <div className="row g-4 align-items-center">
 
-              <ul className="d-flex flex-column gap-3">
-                <li className="d-flex justify-content-between align-items-center mb-2">
-                  <div className="d-flex flex-column">
-                    <strong>Classic Haircut</strong>
-                    Standard razor cut with classic style               
-                  </div>
-                  <strong>$20</strong>
-                </li>
-                <li className="d-flex justify-content-between mb-2 align-items-center">
-                  <div className="d-flex flex-column">
-                    <strong>Fade Cut</strong>
-                    Modern fade with styling
-                  </div>
-                  <strong>$25</strong>
-                </li>
-                <li className="d-flex justify-content-between align-items-center mb-2">
-                  <div className="d-flex flex-column">
-                    <strong>Hot towel shave</strong>
-                    Traditional straight razor shave               
-                  </div>
-                  <strong>$30</strong>
-                </li>
-                <li className="d-flex justify-content-between mb-2 align-items-center">
-                  <div className="d-flex flex-column">
-                    <strong>Beard Trim</strong>
-                    Professional beard styling
-                  </div>
-                  <strong>$20</strong>
-                </li>
-                <li className="d-flex justify-content-between mb-2 align-items-center">
-                  <div className="d-flex flex-column">
-                    <strong>Full Service</strong>
-                    Cut, shave, and beard trim
-                  </div>
-                  <strong>$45</strong>
-                </li>
-                <li className="d-flex justify-content-between mb-2 align-items-center">
-                  <div className="d-flex flex-column">
-                    <strong>Kids Cut</strong>
-                    Under 12 years old
-                  </div>
-                  <strong>$15</strong>
-                </li>
-              </ul>        
-          </div>
-        
-          {/* service img */}
+          {/* LEFT: Pricing List */}
           <div className="col-lg-6">
-            <img src={image} alt="" className="img-fluid rounded"/>
+            {items.map((item, index) => (
+              <div
+                key={index}
+                className="d-flex justify-content-between align-items-center py-3 border-bottom"
+              >
+                <span className="fw-semibold">{item.name}</span>
+                <span className="fw-bold">${item.price}</span>
+              </div>
+            ))}
           </div>
+
+          {/* RIGHT: Image */}
+          <div className="col-lg-6">
+            {image && (
+              <img
+                src={image.src ?? image}
+                alt={image.alt || "Pricing haircut example"}
+                className="img-fluid rounded shadow-sm"
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  ...image.style,
+                }}
+              />
+            )}
+          </div>
+
         </div>
       </div>
     </section>
+  );
+};
 
-  )
-}
-
-export default PricingSection
+export default PricingSection;

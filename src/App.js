@@ -10,16 +10,22 @@ import Footer from './components/Footer';
 import Home from "./pages/Home";
 import Services from "./pages/Services";
 import About from "./pages/About";
+import Gallery from './pages/Gallery'
+import BookNow from './pages/BookNow'
 
 function App() {
   return (
     <Router>
       <Navbar />      
-      <Routes>
-        <Route path="/" element={<Home/>}/>
-        <Route path="/Services" element={<Services/>}/>
-        <Route path="/About" element={<About/>}/>
-      </Routes>      
+      <div class="main-content">
+        <Routes>
+          <Route path="/" element={<Home/>}/>
+          <Route path="/Services" element={<Services/>}/>
+          <Route path="/About" element={<About />} />
+          <Route path="/Gallery" element={<Gallery />} />
+          <Route path="/BookNow" element={<BookNow />} />
+        </Routes>
+      </div>
       <Footer />      
     </Router>
   );

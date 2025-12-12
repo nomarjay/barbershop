@@ -1,59 +1,62 @@
-import React from 'react'
-import Card from '../components/Card'
-import haircut from '../assets/agustin-fernandez-1Pmp9uxK8X8-unsplash.jpg'
-import shave from '../assets/andre-reis-1_DAlXy0wng-unsplash.jpg'
-import fade from '../assets/allef-vinicius-IvQeAVeJULw-unsplash.jpg'
+import React from "react";
 
-
-
-const ServicesSection = () => {
+const ServicesSection = ({ title, subtitle, services = [] }) => {
   return (
-    <section className="py-5" id="services">
+    <section className="py-5">
       <div className="container">
-        <h2 className="section-title">Our Services</h2>
-        <p className="text-center mb-5">Professional barbering services tailored to your style</p>
 
-        <div className="row g-4">
-          <Card
-            image={haircut}
-            icon="fa-solid scissors"
-            title="Classic Cuts"
-            subtitle="Traditional barbering with modern precision."
-            listItems={[
-              "Scissor Cuts",
-              "Razor Cuts",
-              "Style Consultation"
-            ]}          
-          />
-
-          <Card
-            image={shave}
-            icon="fa-solid fa-hot-tub"
-            title="Hot Towel Shave"
-            subtitle="Relaxing straight razor treatment"
-            listItems={[
-              "Hot towel prep",
-              "Premium shaving cream",
-              "Straight razor shave"
-            ]}          
-          />
-
-          <Card
-            image={fade}
-            icon="fa-solid fa-beard"
-            title="Beard Grooming"
-            subtitle="Sharp lines and structured beard work."
-            listItems={[
-              "Line-ups",
-              "Conditioning",
-              "Beard shaping",
-            ]}
-          />
-
+        {/* Header */}
+        <div className="text-center mb-5">
+          <h2 className="fw-bold">{title}</h2>
+          {subtitle && <p className="text-muted">{subtitle}</p>}
         </div>
+
+        {/* Service Cards Grid */}
+        <div className="row g-4">
+          {services.map((service, index) => (
+            <div key={index} className="col-md-6 col-lg-4">
+              <div className="card border-0 shadow-sm h-100">
+
+                {/* Card Image */}
+                {service.image && (
+                  <img
+                    src={service.image.src ?? service.image}
+                    alt={service.image.alt || service.title}
+                    className="card-img-top"
+                    style={{
+                      height: "250px",
+                      objectFit: "cover",
+                      ...service.image.style
+                    }}
+                  />
+                )}
+
+                {/* Card Body */}
+                <div className="card-body">
+                  <h5 className="fw-bold">{service.title}</h5>
+                  <p className="text-muted">{service.description}</p>
+
+                  {/* Feature List */}
+                  {service.features && (
+                    <ul className="list-unstyled mt-3">
+                      {service.features.map((feature, i) => (
+                        <li key={i} className="mb-1">
+                          <i className="fa-solid fa-check text-success me-2"></i>
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+
+              </div>
+            </div>
+          ))}
+        </div>
+
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default ServicesSection
+export default ServicesSection;

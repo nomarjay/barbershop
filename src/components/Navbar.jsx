@@ -1,27 +1,93 @@
-import { Link } from 'react-router-dom'
+import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
-    return (    
-        <nav className="navbar navbar-expand-lg shadow-sm fixed-top py-3">
-            <div className="container">
-                <Link className="navbar-brand fw-bold" to="/"><i className="fa-solid fa-scissors"></i> Style Cutz</Link>
-                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
-                <span className="navbar-toggler-icon"></span>
-                </button>
+  const [open, setOpen] = useState(false);
 
-                <div className="collapse navbar-collapse" id="navMenu">
-                    <ul className="navbar-nav ms-auto fw-semibold">
-                        <li className="nav-item"><Link className="nav-link" to="/">Home</Link></li>                        
-                        <li className="nav-item"><Link className="nav-link" to="/services">Services</Link></li>
-                        <li className="nav-item"><Link className="nav-link" to="/about">About</Link></li>
+  return (
+    <nav
+      className="navbar navbar-expand-lg shadow-sm fixed-top py-3"
+      style={{ backgroundColor: "#0a0c10" }}
+    >
+      <div className="container-fluid px-4">
 
-                        </ul>
-                        
-                    <Link to="/contact" className="btn btn-dark  ms-3">Book Now</Link>
-                </div>
-            </div>
-        </nav>
-    )
-}
+        {/* BRAND */}
+        <Link
+          className="navbar-brand fw-bold text-white"
+          to="/"
+          onClick={() => setOpen(false)}
+        >
+          <i className="fa-solid fa-scissors me-2"></i>
+          Style Cutz
+        </Link>
 
-export default Navbar
+        {/* HAMBURGER (REACT-CONTROLLED) */}
+        <button
+          className="navbar-toggler border-0"
+          type="button"
+          onClick={() => setOpen(!open)}
+        >
+          <span className="navbar-toggler-icon" style={{ filter: "invert(1)" }}></span>
+        </button>
+
+        {/* NAV LINKS */}
+        <div className={`collapse navbar-collapse ${open ? "show" : ""}`}>
+          <ul className="navbar-nav ms-auto fw-semibold">
+
+            <li className="nav-item">
+              <Link
+                className="nav-link text-white"
+                to="/"
+                onClick={() => setOpen(false)}
+              >
+                Home
+              </Link>
+            </li>
+
+            <li className="nav-item">
+              <Link
+                className="nav-link text-white"
+                to="/services"
+                onClick={() => setOpen(false)}
+              >
+                Services
+              </Link>
+            </li>
+
+            <li className="nav-item">
+              <Link
+                className="nav-link text-white"
+                to="/gallery"
+                onClick={() => setOpen(false)}
+              >
+                Gallery
+              </Link>
+            </li>
+
+            <li className="nav-item">
+              <Link
+                className="nav-link text-white"
+                to="/about"
+                onClick={() => setOpen(false)}
+              >
+                About
+              </Link>
+            </li>
+
+          </ul>
+
+          {/* BOOK NOW BUTTON */}
+          <Link
+            to="/booknow"
+            className="btn btn-light ms-lg-3 mt-3 mt-lg-0"
+            onClick={() => setOpen(false)}
+          >
+            Book Now
+          </Link>
+        </div>
+      </div>
+    </nav>
+  );
+};
+
+export default Navbar;

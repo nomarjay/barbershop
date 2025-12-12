@@ -1,45 +1,58 @@
 import React from "react";
 
 const ContentSection = ({
-  image,
-  imageStyle = {},
   title,
   subtitles = [],
-  reverse = false,        // if true, image appears on the RIGHT
-  vertical = false,       // if true, text appears UNDER the image
+  image,
+  imageAlt = "Section image",
+  imageStyle = {},
+  reverse = false,     // image right
+  vertical = false,    // image on top
 }) => {
-  // Decide row layout based on props
-  const rowClass = vertical
+  // Convert image prop to a consistent usable object
+  const imgSrc = typeof image === "object" && image.src ? image.src : image;
+  const imgStyles = typeof image === "object" && image.style ? { ...image.style, ...imageStyle } : imageStyle;
+
+  // Choose layout class
+  const layoutClass = vertical
     ? "d-flex flex-column align-items-center"
     : `row align-items-center ${reverse ? "flex-row-reverse" : ""}`;
 
   return (
-    <div className="my-5 py-4">
-      <div className={rowClass}>
+    <section className="content-section py-5">
+      <div className="container">
 
-        {/* IMAGE */}
-        <div className={vertical ? "col-12 mb-4 text-center" : "col-lg-6 mb-4"}>
-          <img
-            src={typeof image === "object" ? image.src : image}
-            alt={title}
-            className="img-fluid rounded"
-            style={typeof image === "object" ? image.style : imageStyle}
-          />
+        <div className={layoutClass}>
+
+          {/* IMAGE COLUMN */}
+          {imgSrc && (
+            <div className={vertical ? "col-12 mb-4 text-center" : "col-lg-6 mb-4"}>
+              <img
+                src={imgSrc}
+                alt={imageAlt}
+                className="img-fluid rounded shadow-sm"
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  ...imgStyles
+                }}
+              />
+            </div>
+          )}
+
+          {/* TEXT COLUMN */}
+          <div className={vertical ? "col-12 text-center" : "col-lg-6"}>
+            {title && <h3 className="fw-bold mb-3">{title}</h3>}
+
+            {subtitles.map((text, index) => (
+              <p key={index} className="mb-3">{text}</p>
+            ))}
+          </div>
+
         </div>
-
-        {/* TEXT */}
-        <div className={vertical ? "col-12" : "col-lg-6"}>
-          {title && <h3 className="fw-bold mb-3 text-center">{title}</h3>}
-
-          {subtitles.map((text, index) => (
-            <p key={index} className="mb-3">
-              {text}
-            </p>
-          ))}
-        </div>
-
       </div>
-    </div>
+    </section>
   );
 };
 
