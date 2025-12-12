@@ -10,10 +10,10 @@ const PricingSection = () => {
         <h2 className="section-title">Pricing</h2>
         <p className="text-center mb-5">Transparent pricing for premium services</p>
 
-        <div className="d-flex justify-content-between align-items-center">
+        <div className="row g-3 justify-content-between align-items-center">
 
          {/* service menu */}
-          <div className="col-lg-5 p-4 pricing-card">
+          <div className="col-lg-6 p-4 pricing-card">
               <h4 className="fw-bold mb-4">Service Menu</h4>
 
               <ul className="d-flex flex-column gap-3">
@@ -63,8 +63,8 @@ const PricingSection = () => {
           </div>
         
           {/* service img */}
-          <div className="col-lg-5">
-            <img src={image} alt="" className="side-img img-fluid rounded"/>
+          <div className="col-lg-6">
+            <img src={image} alt="" className="img-fluid rounded"/>
           </div>
         </div>
       </div>
