@@ -1,57 +1,79 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
-    <footer
-      className="py-4 mt-5"
-      style={{ background: "#0a0c10", color: "#ccc" }}
-    >
-      <div className="container text-center">
+    <footer className="footer">
+      <div className="footer-inner">
 
-        {/* BRAND */}
-        <h5 className="fw-bold text-white mb-2">
-          <i className="fa-solid fa-scissors me-2"></i>Style Cutz
-        </h5>
-
-        {/* CONTACT INFO */}
-        <p className="mb-1">305 Blanding Blvd, Suite B, Orange Park, FL 32073</p>
-        <p className="mb-3">(904) 375-9697 • support@stylecutz.com</p>
-
-        {/* NAVIGATION (OPTIONAL QUICK LINKS) */}
-        <div className="d-flex justify-content-center gap-4 mb-3 flex-wrap">
-          <Link to="/" className="footer-link text-decoration-none text-light">
-            Home
-          </Link>
-          <Link to="/services" className="footer-link text-decoration-none text-light">
-            Services
-          </Link>
-          <Link to="/about" className="footer-link text-decoration-none text-light">
-            About
-          </Link>
-          <Link to="/contact" className="footer-link text-decoration-none text-light">
-            Contact
-          </Link>
+        <div className="footer-col">
+          <h4>Navigation</h4>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/services">Services</Link>
+            </li>
+            <li>
+              <Link to="/about">About</Link>
+            </li>
+            <li>
+              <Link to="/contact">Contact</Link>
+            </li>
+          </ul>
         </div>
 
-        {/* SOCIAL ICONS */}
-        <div className="d-flex justify-content-center gap-3 mb-3">
-          <a href="#" className="text-light" aria-label="Facebook">
-            <i className="fa-brands fa-facebook fa-lg"></i>
-          </a>
-          <a href="#" className="text-light" aria-label="Instagram">
-            <i className="fa-brands fa-instagram fa-lg"></i>
-          </a>
-          <a href="#" className="text-light" aria-label="Twitter">
-            <i className="fa-brands fa-twitter fa-lg"></i>
-          </a>
+        <div className="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li>
+              <a href="tel:+19045551234">(904) 555-1234</a>
+            </li>
+            <li>
+              <a href="mailto:stylecutsbarbershop@gmail.com">
+                stylecutsbarbershop@gmail.com
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://maps.google.com/?q=Jacksonville+FL"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Jacksonville, FL
+              </a>
+            </li>
+          </ul>
         </div>
 
-        {/* COPYRIGHT */}
-        <p className="mt-3 mb-0" style={{ fontSize: "0.9rem", color: "#888" }}>
-          © {new Date().getFullYear()} Style Cutz Barbershop. All rights reserved.
-        </p>
-        
+        <div className="footer-col">
+          <h4>Follow Us</h4>
+          <ul className="footer-social">
+            <li>
+              <a
+                href="https://www.instagram.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Instagram
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.facebook.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Facebook
+              </a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div className="footer-bottom">
+        <p>© {new Date().getFullYear()} Style Cuts Barbershop. All rights reserved.</p>
       </div>
     </footer>
   );
