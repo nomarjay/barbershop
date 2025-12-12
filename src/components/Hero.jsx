@@ -46,7 +46,7 @@ const Hero = ({
         <h1 className="display-4 fw-bold mb-3">{title}</h1>
 
         {subtitle && (
-          <p className="lead mb-4" style={{ maxWidth: "650px", margin: "0 auto" }}>
+          <p className="lead text-white mb-4" style={{ maxWidth: "650px", margin: "0 auto" }}>
             {subtitle}
           </p>
         )}

@@ -2,78 +2,51 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
-    <footer className="footer">
-      <div className="footer-inner">
+    <footer className="bg-dark text-light mt-auto">
+      <div className="container align-items-center py-5">
+        <div className="row text-center gy-4 justify-content-center">
 
-        <div className="footer-col">
-          <h4>Navigation</h4>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/services">Services</Link>
-            </li>
-            <li>
-              <Link to="/about">About</Link>
-            </li>
-            <li>
-              <Link to="/contact">Contact</Link>
-            </li>
-          </ul>
+          <div className="col-md-4 align-items-center">
+            <h6 className="text-uppercase fw-bold mb-3">Navigation</h6>
+            <ul className="list-unstyled">
+              <li><Link className="text-light text-decoration-none" to="/">Home</Link></li>
+              <li><Link className="text-light text-decoration-none" to="/services">Services</Link></li>
+              <li><Link className="text-light text-decoration-none" to="/about">About</Link></li>
+              <li><Link className="text-light text-decoration-none" to="/contact">Contact</Link></li>
+            </ul>
+          </div>
+
+          <div className="col-md-4 align-items-center">
+            <h6 className="text-uppercase fw-bold mb-3">Contact</h6>
+            <ul className="list-unstyled">
+              <li><a className="text-light text-decoration-none" href="tel:+19045551234">(904) 555-1234</a></li>
+              <li><a className="text-light text-decoration-none" href="mailto:stylecutsbarbershop@gmail.com">stylecutsbarbershop@gmail.com</a></li>
+              <li>
+                <a
+                  className="text-light text-decoration-none"
+                  href="https://maps.google.com/?q=Jacksonville+FL"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Jacksonville, FL
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div className="col-md-4 align-items-center">
+            <h6 className="text-uppercase fw-bold mb-3">Follow Us</h6>
+            <ul className="list-unstyled">
+              <li><a className="text-light text-decoration-none" href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+              <li><a className="text-light text-decoration-none" href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+            </ul>
+          </div>
+
         </div>
-
-        <div className="footer-col">
-          <h4>Contact</h4>
-          <ul>
-            <li>
-              <a href="tel:+19045551234">(904) 555-1234</a>
-            </li>
-            <li>
-              <a href="mailto:stylecutsbarbershop@gmail.com">
-                stylecutsbarbershop@gmail.com
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://maps.google.com/?q=Jacksonville+FL"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Jacksonville, FL
-              </a>
-            </li>
-          </ul>
-        </div>
-
-        <div className="footer-col">
-          <h4>Follow Us</h4>
-          <ul className="footer-social">
-            <li>
-              <a
-                href="https://www.instagram.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Instagram
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.facebook.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Facebook
-              </a>
-            </li>
-          </ul>
-        </div>
-
       </div>
 
-      <div className="footer-bottom">
-        <p>© {new Date().getFullYear()} Style Cuts Barbershop. All rights reserved.</p>
+      <div className="text-center py-3">
+        <small>© {new Date().getFullYear()} Style Cuts Barbershop. All rights reserved.</small>
       </div>
     </footer>
   );

@@ -69,7 +69,7 @@ const About = () => {
 
           <h3 className="fw-bold mb-4">Our Culture, Our Identity</h3>
 
-          <p className="lead mx-auto" style={{ maxWidth: "800px" }}>
+          <p className="lead mx-auto text-white" style={{ maxWidth: "800px" }}>
             Style Cutz is more than a barbershop — it's a community hub. A space
             for artists, thinkers, entrepreneurs, athletes, fathers, sons,
             students, and everyone in between. Our chairs carry stories, energy,
