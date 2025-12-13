@@ -23,6 +23,7 @@ const ServicesSection = ({ title, subtitle, services = [] }) => {
                     src={service.image.src ?? service.image}
                     alt={service.image.alt || service.title}
                     className="card-img-top"
+                    loading = "lazy"
                     style={{
                       height: "250px",
                       objectFit: "cover",

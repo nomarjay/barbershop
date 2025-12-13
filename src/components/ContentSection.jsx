@@ -31,6 +31,7 @@ const ContentSection = ({
                 src={imgSrc}
                 alt={imageAlt}
                 className="img-fluid rounded shadow-sm"
+                loading="lazy"
                 style={{
                   width: "100%",
                   height: "100%",

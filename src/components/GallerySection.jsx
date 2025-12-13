@@ -17,6 +17,7 @@ const GallerySection = ({ title, images = [] }) => {
                   src={img.src}
                   alt={img.alt || `Gallery image ${index + 1}`}
                   className="img-fluid"
+                  loading="lazy"
                   style={{
                     width: "100%",
                     height: "100%",

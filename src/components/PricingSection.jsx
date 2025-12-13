@@ -33,6 +33,7 @@ const PricingSection = ({ title, subtitle, items = [], image }) => {
                 src={image.src ?? image}
                 alt={image.alt || "Pricing haircut example"}
                 className="img-fluid rounded shadow-sm"
+                loading="lazy"
                 style={{
                   width: "100%",
                   height: "100%",
