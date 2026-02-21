@@ -1,70 +1,149 @@
-# Getting Started with Create React App
+# ✂️ Style Cutz Barbershop — Website Redesign
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern, responsive React website built for **Style Cutz Barbershop** in Orange Park, FL. This project was a full redesign of the shop's outdated static site — rebuilt from the ground up with a clean aesthetic, mobile-first layout, and a structure that's easy for the new owner to customize.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🧭 Project Overview
 
-### `npm start`
+The original Style Cutz website was static, visually outdated, and not optimized for modern browsers or mobile devices. Under new ownership, the shop needed a fresh digital presence that matched the quality of their in-person experience.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+This redesign delivers:
+- A modern, dark-themed aesthetic consistent with premium barbershop branding
+- Full mobile responsiveness across all major browsers
+- A component-driven architecture that makes future edits simple — no deep React knowledge required
+- Placeholder content and imagery ready for the owner to swap in their own photos and details
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## 🛠️ Tech Stack
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+| Tool | Purpose |
+|------|---------|
+| **React** | Component-based UI |
+| **React Router DOM** | Client-side page routing |
+| **Bootstrap 5** | Responsive grid & utility classes |
+| **Font Awesome** | Icons (scissors, phone, location, etc.) |
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 📁 Project Structure
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+src/
+├── assets/              # Images used throughout the site
+├── components/          # Reusable UI components
+│   ├── Navbar.jsx       # Sticky top nav with mobile hamburger menu
+│   ├── Footer.jsx       # Links, contact info, social media
+│   ├── Hero.jsx         # Full-width hero with background image + CTA buttons
+│   ├── ServicesSection.jsx   # Card grid for services
+│   ├── PricingSection.jsx    # Price list with side image
+│   ├── GallerySection.jsx    # Responsive image grid
+│   ├── ContentSection.jsx    # Flexible text + image layout block
+│   └── ContactSection.jsx    # Contact info + embedded Google Map
+├── pages/
+│   ├── Home.jsx         # Landing page with all key sections
+│   ├── Services.jsx     # Full services breakdown
+│   ├── About.jsx        # Shop story, founder bio, culture section
+│   ├── Gallery.jsx      # Photo portfolio grid
+│   └── BookNow.jsx      # Appointment booking form
+└── App.js               # Router setup and page layout
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## 📄 Pages
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 🏠 Home
+The main landing page featuring a hero banner, services overview, pricing list, gallery preview, and a brand identity content block.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### ✂️ Services
+A detailed breakdown of all barbering services (fades, beard grooming, razor shaves, combo cuts) with feature lists and imagery.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 👤 About
+The shop's origin story, founder profile for Marcus "Clipper King" Howard, a shop interior section, and a culture block highlighting the barbershop's values.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### 🖼️ Gallery
+A full-width photo portfolio showcasing cuts, fades, beard work, and razor finishes.
 
-## Learn More
+### 📅 Book Now
+A booking form collecting name, phone, service selection, preferred date/time, and optional notes. Currently front-end only — ready to connect to a backend or third-party booking service.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## ⚙️ Key Components
 
-### Code Splitting
+**`Hero.jsx`** — Reusable hero section accepting a background image, title, subtitle, and up to two CTA buttons with custom link routing.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+**`ContentSection.jsx`** — Flexible layout block that supports left/right image alignment or a stacked vertical layout. Accepts any number of subtitle paragraphs.
 
-### Analyzing the Bundle Size
+**`ServicesSection.jsx`** — Renders a responsive card grid from a services data array. Each card supports an image, description, and feature list.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+**`PricingSection.jsx`** — Displays a clean price list alongside a feature image. Prices are passed as props for easy updates.
 
-### Making a Progressive Web App
+**`GallerySection.jsx`** — Renders a responsive image grid from an array of image objects.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+**`ContactSection.jsx`** — Displays location, phone, hours, email, and walk-in policy alongside an embedded Google Maps iframe.
 
-### Advanced Configuration
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## 🎨 Design Decisions
 
-### Deployment
+- **Dark color scheme** (`#0a0c10`, `#111318`) chosen to match the premium, modern feel of a high-end barbershop
+- **Bootstrap grid** keeps layout consistent and responsive without heavy custom CSS
+- **Component-driven design** means each section of every page can be updated independently by swapping props — no restructuring needed
+- **Sticky navbar** with mobile hamburger menu ensures navigation is accessible on all screen sizes
+- **Font Awesome icons** used throughout for a polished, professional look
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+---
 
-### `npm run build` fails to minify
+## 🔧 Getting Started
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm start
+
+# Build for production
+npm run build
+```
+
+---
+
+## 📝 Owner Customization Guide
+
+The site is designed as a ready-to-hand-off template. Here's what the new owner will likely want to update:
+
+| What to change | Where to find it |
+|---------------|-----------------|
+| Phone number | `ContactSection.jsx`, `Footer.jsx` |
+| Email address | `ContactSection.jsx`, `Footer.jsx` |
+| Address / map | `ContactSection.jsx` (update Google Maps embed URL) |
+| Business hours | `ContactSection.jsx` |
+| Service prices | `Home.jsx` → `PricingSection` items array |
+| Gallery photos | Replace image imports in `Gallery.jsx` and `Home.jsx` |
+| Hero images | Replace `heroImage` imports in each page file |
+| Social media links | `Footer.jsx` |
+| Booking form backend | `BookNow.jsx` → connect `handleSubmit` to your preferred service |
+
+---
+
+## 🚀 Future Enhancements
+
+- Connect booking form to a backend (e.g., EmailJS, Calendly embed, or custom API)
+- Add barber profile cards to the About page
+- Integrate Instagram feed for live gallery updates
+- Add testimonials / review section
+- Implement SEO metadata and Open Graph tags
+
+---
+
+## 📸 Image Credits
+
+Placeholder images sourced from [Unsplash](https://unsplash.com) and [Pexels](https://pexels.com). Replace with original shop photography before launch.
+
+---
+
+*Built with React • Designed for Style Cutz Barbershop, Orange Park, FL*
